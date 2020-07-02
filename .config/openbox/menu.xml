@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="apps-accessories-menu" label="Accessories">
+  <item label="Radare2">
+    <action name="Execute">
+      <command>Cutter</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Bleachbit">
+    <action name="Execute">
+      <command>bleachbit</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="7zip">
+    <action name="Execute">
+      <command>file-roller</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="GParted">
+    <action name="Execute">
+      <command>gksudo gparted</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Virtualbox">
+    <action name="Execute">
+      <command>virtualbox</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Anydesk">
+	<action name="Execute">
+		<command>anydesk</command>
+	</action>
+  </item>
+</menu>
+
+<menu id="apps-editors-menu" label="Editors">
+  <item label="Sublime Text">
+    <action name="Execute">
+      <command>subl</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-term-menu" label="Terminals">
+  <item label="Rxvt">
+    <action name="Execute">
+      <command>urxvt</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-net-menu" label="Network">
+  <item label="Mozilla Firefox">
+  <action name="Execute">
+    <command>firefox</command>
+    </action>
+  </item>
+  <item label="Thunderbird">
+  <action name="Execute">
+    <command>thunderbird</command>
+    </action>
+  </item>
+  <item label="Tor Browser">
+    <action name="Execute">
+      <command>tor-browser-en-us</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Firefox</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Wireshark">
+    <action name="Execute">
+      <command>wireshark-gtk</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Transmission">
+    <action name="Execute">
+      <command>transmission-gtk</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-office-menu" label="Office">
+  <item label="Libre Office">
+    <action name="Execute">
+      <command>libreoffice</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-multimedia-menu" label="Multimedia">
+  <item label="VLC">
+    <action name="Execute">
+      <command>vlc</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Spotify">
+    <action name="Execute">
+      <command>spotify</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Popcorntime">
+    <action name="Execute">
+      <command>popcorntime</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-fileman-menu" label="File Managers">
+  <item label="File Manager">
+    <action name="Execute">
+      <command>pcmanfm</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-graphics-menu" label="Graphics">
+  <item label="Krita">
+    <action name="Execute">
+      <command>krita</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Image Viewer">
+    <action name="Execute">
+      <command>shotwell</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Openbox Configuration Manager">
+    <action name="Execute">
+      <command>obconf</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="LXAppearance">
+    <action name="Execute">
+      <command>lxappearance</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Cups">
+    <action name="Execute">
+      <command>xdg-open http://localhost:631/</command>
+      <startupnotify>
+        <enabled>no</enabled>
+        <icon>cups</icon>
+      </startupnotify>
+    </action>
+  </item>
+  <separator />
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Applications" />
+  <menu id="apps-accessories-menu"/>
+  <menu id="apps-editors-menu"/>
+  <menu id="apps-graphics-menu"/>
+  <menu id="apps-net-menu"/>
+  <menu id="apps-office-menu"/>
+  <menu id="apps-multimedia-menu"/>
+  <menu id="apps-term-menu"/>
+  <menu id="apps-fileman-menu"/>
+  <separator label="System" />
+  <menu id="system-menu"/>
+  <separator />
+  <item label="Suspend">
+    <action name="Execute">
+      <command>systemctl suspend</command>
+    </action>
+  </item>
+  <item label="Restart">
+    <action name="Execute">
+      <command>systemctl reboot</command>
+    </action>
+  </item>
+  <item label="Shutdown">
+    <action name="Execute">
+      <command>systemctl poweroff</command>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
