@@ -1,0 +1,79 @@
+!------ General ------
+urxvt*termName: rxvt-256color
+urxvt*geometry: 80x24
+urxvt*depth: 32
+urxvt*urgentOnBell: false
+urxvt*visualBell: false
+urxvt*loginShell: true
+
+
+!------ Colors ------
+*background: rgba:0000/0000/0200/c800
+*foreground: #c8c8c8
+
+! black
+*color0:  #251f1f
+*color8:  #5e5e5e
+
+! red
+*color1:  #eb4509
+*color9:  #eb4509
+
+! green
+*color2:  #94e76b
+*color10: #95e76b
+
+! yellow
+*color3:  #ffac18
+*color11: #ffac18
+
+! blue
+*color4:  #46aede
+*color12: #46aede
+
+! magenta
+*color5:  #e32c57
+*color13: #e32c57
+
+! cyan -> orange
+*color6:  #ce5c00
+*color14: #fcaf3e
+
+! white
+*color7:  #efefef
+*color15: #efefef
+
+
+!------ Scrolling ------
+urxvt*scrollBar: false
+urxvt*scrollBar_right: false
+urxvt*scrollBar_floating: false
+urxvt*scrollstyle: rxvt
+urxvt*secondaryScroll: true
+urxvt*scrollWithBuffer: true
+urxvt*scrollTtyKeypress: true
+urxvt*scrollTtyOutput: false
+
+
+!------ Fonts ------
+urxvt*font: xft:xos4 terminus:pixelsize11
+urxvt*boldFont: xft:xos4 terminus:bold:pixelsize:11
+urxvt*italicFont: xft:xos4 terminus:italic:autohint=true:pixelsize=11
+urxvt*boldItalicFont: xft:xos4 terminus:bold:italic:autohint=true:pixelsize=11
+urxvt*saveLines: 4000
+urxvt*buffered: true
+urxvt*hold: false
+
+
+!------ Printing ------
+urxvt*print-pipe: cat > /dev/null
+
+
+!------ Font Rendering ------
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.autohint:   false
+Xft.lcdfilter:  lcddefault
