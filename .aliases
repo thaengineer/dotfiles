@@ -1,15 +1,32 @@
-# aliases
-alias ll='ls -ltr --color=auto'
+# general
 alias ls='ls --color=auto'
+alias ll='ls -ltr'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias pacman='pacman --color=auto'
 alias yay='yay --color=auto'
 alias update='yay -Syu --noconfirm'
-alias ss='ss -puta'
-alias nmap='grc nmap'
-alias pyftp='sudo python -m pyftpdlib -p 8080 -w'
+
+# docker
 alias docker='sudo docker'
+alias opensuse='docker run --rm -it opensuse/leap:latest'
+alias sap='docker run --rm -it -h sapdevci \
+-v D:\\docker\\home:/home \
+-v D:\\docker\\install_media:/install_media \
+-v D:\\docker\\hana:/hana \
+-v D:\\docker\\usr\\sap:/usr/sap \
+-v D:\\docker\\sapmnt:/sapmnt \
+--sysctl kernel.shmmax=1073741824 \
+--sysctl net.ipv4.ip_local_port_range="40000 60999" \
+--sysctl kernel.shmmni=524288 \
+--sysctl kernel.shmall=8388608 \
+--ulimit nofile=1048576:1048576 \
+sap:latest \
+/bin/bash'
+
+# other
+alias ss='ss -puta'
+alias pyftp='sudo python -m pyftpdlib -p 8080 -w'
 # alias postfiledumphere='docker run --rm -it -p80:3000 -v "${PWD}:/data" rflathers/filedump'
 # alias sendfiledump='ls | xargs -I{} wget http://10.10.14.3/{} --post-file {}'
