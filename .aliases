@@ -12,11 +12,11 @@ alias update='yay -Syu --noconfirm'
 alias docker='sudo docker'
 alias opensuse='docker run --rm -it opensuse/leap:latest'
 alias sap='docker run --rm -it -h sapdevci \
--v D:\\docker\\home:/home \
--v D:\\docker\\install_media:/install_media \
--v D:\\docker\\hana:/hana \
--v D:\\docker\\usr\\sap:/usr/sap \
--v D:\\docker\\sapmnt:/sapmnt \
+-v /home:/home \
+-v ${HOME}/workspace/sap:/install_media \
+-v /hana:/hana \
+-v /usr/sap:/usr/sap \
+-v /sapmnt:/sapmnt \
 --sysctl kernel.shmmax=1073741824 \
 --sysctl net.ipv4.ip_local_port_range="40000 60999" \
 --sysctl kernel.shmmni=524288 \
