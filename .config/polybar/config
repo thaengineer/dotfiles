@@ -7,12 +7,12 @@ offset-x = 0%
 offset-y = 1050
 bottom = true
 fixed-center = true
-font-0 = Droid Sans:size=10;2
-font-1 = Font Awesome 5 Free:style=regular:size=10;2
-font-2 = Font Awesome 5 Free:style=solid:size=10;2
+font-0 = Droid Sans:size=12;2
+font-1 = Font Awesome 5 Free:style=regular:size=12;2
+font-2 = Font Awesome 5 Free:style=solid:size=12;2
+modules-left = wlan vpn menu
 modules-center = date
-modules-right = updates temp cpu memory fs volume battery
-modules-left = lan2 wlan2 vpn
+modules-right = temp fs volume battery
 module-margin = 2
 tray-position = none
 override-redirect = true
@@ -21,40 +21,19 @@ radius = 0
 wm-name = bar
 
 
-[module/xwin]
-type = internal/xwindow
-format = <label>
-
-
-[module/menu]
-type = custom/menu
-expand-right = false
-menu-0-0-forground = #9ff
-menu-0-0 = 
-menu-0-0-exec = systemctl suspend
-menu-0-1 = 
-menu-0-1-exec = systemctl reboot
-menu-0-2 = 
-menu-0-2-exec = systemctl poweroff
-*-font = 3
-label-open = 
-label-close = 
-label-separator = |
-
-
 [module/date]
 type = internal/date
 interval = 60
-date = %d-%m-%Y
+date = %a,  %h  %d
 time = %H:%M
-label =   %date%         %time%
+label =   %date%  %time%
 
 
 [module/temp]
 type = internal/temperature
 interval = 1
 thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input
 warn-temperature = 59
 format = <label>
 label =  %temperature-c%
@@ -62,47 +41,15 @@ label-warn =  %temperature-c%
 label-warn-foreground = #f00
 
 
-[module/cpu]
-type = internal/cpu
-interval = 1
-format = <label> <bar-load>
-label = 
-bar-load-width = 8
-bar-load-indicator = 
-bar-load-fill = 
-bar-load-empty = 
-bar-load-foreground-0 = #5f5
-bar-load-foreground-1 = #ff0
-bar-load-foreground-2 = #f70
-bar-load-foreground-3 = #f55
-bar-load-empty-foreground = #444
-
-[module/memory]
-type = internal/memory
-interval = 1
-format = <label> <bar-used>
-label = 
-bar-used-width = 8
-bar-used-indicator = 
-bar-used-fill = 
-bar-used-empty = 
-bar-used-foreground-0 = #5f5
-bar-used-foreground-1 = #ff0
-bar-used-foreground-2 = #f70
-bar-used-foreground-3 = #f55
-bar-used-empty-foreground = #444
-
-
 [module/fs]
 type = internal/fs
 mount-0 = /
-interval = 10
+interval = 30
 fixed-values = true
-spacing = 4
 format-mounted = <label-mounted>
 label-mounted =  %free%
 label-unmounted =   N/A
-label-unmounted-foreground = #55
+label-unmounted-foreground = #555
 
 
 [module/network]
@@ -111,43 +58,35 @@ interval = 3
 
 [module/lan]
 inherit = module/network
-interface = eth0
-label-connected = 
-label-connected-foreground = #ff9
-[module/lan2]
-inherit = module/lan
 interface = enp58s0f1
+label-connected = 
+label-connected-foreground = #fff
 
 [module/wlan]
 inherit = module/network
-interface = wlan0
-label-connected = 
+interface = wlp59s0
+label-connected =   %essid%
 label-disconnected = 
 label-connected-foreground = #fff
-[module/wlan2]
-inherit = module/wlan
-interface = wlp59s0
+
+[module/vpn]
+type = custom/script
+exec = /home/stephen/.config/polybar/vpn.py
+click-left = /home/stephen/.config/polybar/vpn.py --toggle
+interval = 3
+format = <label>
+label = %output%
+label-foreground = #fff
 
 
 [module/volume]
-type = internal/alsa
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-master-mixer = Master
-mapped = true
-interval = 5
-format-volume =  <bar-volume>
+type = internal/volume
+format-volume = <ramp-volume>  <label-volume>
 format-muted = 
-bar-volume-width = 10
-bar-volume-indicator = |
-bar-volume-fill = |
-bar-volume-empty = |
-bar-volume-foreground-0 = #fff
-bar-volume-foreground-1 = #fff
-bar-volume-foreground-2 = #fff
-bar-volume-foreground-3 = #fff
-bar-volume-empty-foreground = #444
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+click-left = amixer sset Master toggle
 
 
 [module/battery]
@@ -160,10 +99,10 @@ time-format = %H:%M
 format-full = <label-full>
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-label-full-foreground = #9f9
-label-charging-foreground = #9ff
-label-discharging-foreground = #f99
-label-full =  %percentage%%
+label-full-foreground = #fff
+label-charging-foreground = #fff
+label-discharging-foreground = #fff
+label-full = 
 label-charging = %percentage%%
 label-discharging = %percentage%%
 ramp-capacity-0 = 
@@ -183,23 +122,3 @@ animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
 animation-discharging-framerate = 500
-
-
-[module/vpn]
-type = custom/script
-exec = /home/stephen/.config/polybar/vpn.py
-click-left = /home/stephen/.config/polybar/vpnclick.py
-interval = 1
-format = <label>
-label = %output%
-label-foreground = #fff
-
-
-[module/updates]
-type = custom/script
-exec = /home/stephen/.config/polybar/updates.sh
-click-left = /home/stephen/.config/polybar/check.sh
-interval = 30
-format = <label>
-label =  %output%
-label-foreground = #fff
