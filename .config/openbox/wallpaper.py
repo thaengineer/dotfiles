@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-
-import os
-import time
+import getpass
 import random as rnd
-
-wallpapers = [
-	"bg-1.jpg",
-	"bg-2.jpg",
-	"bg-3.jpg"
-]
+from os import listdir
+from os import system
 
 
-while(True):
-	wallpaper = wallpapers[rnd.randint(0, len(wallpapers) - 1)]
-	os.system("nitrogen --set-zoom-fill /home/$USER/Pictures/" + wallpaper + " &")
-	time.sleep(600)
+user = getpass.getuser()
+wallpapers = [x for x in listdir(f"/home/{user}/Pictures/wallpapers")]
+wallpapers = sorted(wallpapers)
+wallpaper  = wallpapers[rnd.randint(0, len(wallpapers) - 1)]
+
+
+if __name__ == '__main__':
+	system("nitrogen --set-zoom-fill /home/${USER}/Pictures/wallpapers/" + wallpaper + " &")
