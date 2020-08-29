@@ -1,6 +1,6 @@
 xrdb ~/.Xresources
 compton -b &
 ~/.config/openbox/wallpaper.py &
-polybar -c ~/.config/polybar/config -r bar &
+polybar -c ~/.config/polybar/config -r default &
 gvolwheel &
-redshift &
+redshift -O 4500 &
