@@ -9,8 +9,8 @@ alias yay='yay --color=auto'
 alias update='yay -Syu --noconfirm'
 
 # docker
-alias docker='sudo docker'
-alias opensuse='docker run --rm -it opensuse/leap:latest'
+alias centos='docker run --rm -it centos:latest /bin/bash'
+alias opensuse='docker run --rm -it opensuse/leap:latest /bin/bash'
 alias sap='docker run --rm -it -h sapdevci \
 -v /home:/home \
 -v ${HOME}/workspace/sap:/install_media \
@@ -28,5 +28,5 @@ sap:latest \
 # other
 alias ss='ss -puta'
 alias pyftp='sudo python -m pyftpdlib -p 8080 -w'
-# alias postfiledumphere='docker run --rm -it -p80:3000 -v "${PWD}:/data" rflathers/filedump'
+# alias postfiledumphere='docker run --rm -it -p80:3000 -v "${PWD}:/data" container'
 # alias sendfiledump='ls | xargs -I{} wget http://10.10.14.3/{} --post-file {}'
